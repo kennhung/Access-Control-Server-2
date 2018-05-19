@@ -1,6 +1,6 @@
 package indi.kennhuang.accesscontrol.server.device;
 
-import indi.kennhuang.accesscontrol.server.db.Group;
+import indi.kennhuang.accesscontrol.server.db.UserGroup;
 import indi.kennhuang.accesscontrol.server.db.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,7 +21,7 @@ public class DeviceServerHandler implements Runnable {
         System.out.printf("Incoming connection from %s\n", clientSocket.getRemoteSocketAddress());
         DataInputStream input = null;
         DataOutputStream output = null;
-        StringBuffer inputBuffer = new StringBuffer();
+        StringBuffer inputBuffer = new StringBuffer();/*
         try {
             input = new DataInputStream(this.clientSocket.getInputStream());
             output = new DataOutputStream(this.clientSocket.getOutputStream());
@@ -105,11 +105,11 @@ public class DeviceServerHandler implements Runnable {
     private boolean checkGroupDoorsAccessibility(JSONArray groups, int doorId, int level) {
         for (int i = 0; i < groups.length(); i++) {
             try {
-                Group group = Group.findGroupById(groups.getInt(i));
-                if(group == null){
+                UserGroup userGroup = UserGroup.findGroupById(groups.getInt(i));
+                if(userGroup == null){
                     continue;
                 }
-                if (checkDoorsAccessibility(new JSONArray(group.doors), doorId, level)) {
+                if (checkDoorsAccessibility(new JSONArray(userGroup.doors), doorId, level)) {
                     return true;
                 }
             } catch (SQLException e) {
@@ -117,6 +117,6 @@ public class DeviceServerHandler implements Runnable {
             }
         }
 
-        return false;
+        return false;*/
     }
 }

@@ -2,11 +2,6 @@ package indi.kennhuang.accesscontrol.server.web;
 
 import com.sun.net.httpserver.HttpServer;
 import indi.kennhuang.accesscontrol.server.web.handlers.Index;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
-import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 import java.io.*;
 import java.net.*;
